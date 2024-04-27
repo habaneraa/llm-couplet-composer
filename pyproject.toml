@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "llm-couplet"
+version = "0.1.0"
+description = ""
+authors = ["habaneraa"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+couplet = "llm_couplet.cli:app"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langchain = "^0.1.16"
+langchain-openai = "^0.1.4"
+typer = "^0.12.3"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.2"
+isort = "^5.13.2"
+black = "^24.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 98
