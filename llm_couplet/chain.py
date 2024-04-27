@@ -44,6 +44,9 @@ class CoupletComposer:
 
     def compose(self, first_line: str) -> str:
         return self.chain.invoke({"first_line": first_line})
+    
+    async def acompose(self, first_line: str) -> str:
+        return await self.chain.ainvoke({"first_line": first_line})
 
     @classmethod
     def from_file(cls, config_path):
