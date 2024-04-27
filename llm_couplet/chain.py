@@ -49,6 +49,4 @@ class CoupletComposer:
     def from_file(cls, config_path):
         with open(config_path, "r") as f:
             llm_config = yaml.safe_load(f)
-        return cls(
-            LLMConfig(**llm_config["first_llm"]), LLMConfig(**llm_config["last_llm"])
-        )
+        return cls(LLMConfig(**llm_config["first_llm"]), LLMConfig(**llm_config["last_llm"]))
