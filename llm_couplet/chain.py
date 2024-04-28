@@ -12,7 +12,7 @@ from llm_couplet.prompt_templates import (
     analyze_senti,
     analyze_tones,
     analyze_topic,
-    compose_couplet,
+    compose_couplet_messages,
 )
 
 LLMConfig = namedtuple("LLMConfig", ["model", "api_key", "base_url", "temperature"])
@@ -37,7 +37,7 @@ class CoupletComposer:
                 "senti": PromptTemplate.from_template(analyze_senti) | first_llm | output_parser,
                 "first_line": itemgetter("first_line"),
             }
-            | ChatPromptTemplate.from_template(compose_couplet)
+            | ChatPromptTemplate.from_messages(compose_couplet_messages)
             | last_llm
             | output_parser
         )

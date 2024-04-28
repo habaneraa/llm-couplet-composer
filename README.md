@@ -1,5 +1,10 @@
 # 📜🖌️ LLM Chinese Couplet Composer
 
+![Static Badge](https://img.shields.io/badge/汉语-对联-red)
+![Python Version](https://img.shields.io/badge/Python-3.12-orange)
+![GitHub License](https://img.shields.io/github/license/habaneraa/llm-couplet-composer)
+![GitHub last commit](https://img.shields.io/github/last-commit/habaneraa/llm-couplet-composer)
+
 🏮 语言模型创作对联 - 基于 [LangChain](https://python.langchain.com/docs/get_started/introduction) 实现  🏮
 
 ## 快速开始

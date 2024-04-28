@@ -60,7 +60,7 @@ analyze_senti = """
 感情基调：
 """
 
-compose_couplet = """
+compose_couplet_system = """
 你是一位资深的对联创作大师，非常精通汉语言文学和中国历史文化。
 
 指令:
@@ -78,37 +78,38 @@ compose_couplet = """
 - 避免同字相对，即上、下联对应的位置文字不能是同一个字。
 - 切忌合掌，即上、下联的意思完全相同，一副对联的意思只能是相近、相似或相反，但不能相同。
 
-现在，你的任务是根据以下上联，并根据相关提示，创作出一个优秀的下联。你可以先按照思路指引梳理思路，然后尝试多种表达，最终给出你认为最佳的一个版本。
-
-以下是一个优秀的范例：
-\"\"\"
+现在，你的任务是根据以下上联，并根据相关提示，创作出一个优秀的下联。
+"""
+compose_couplet_oneshot_user = """
 上联：春雨丝丝润万物
 
-字数：七字
+- 字数：七字
+- 词性：春雨：名词。丝丝：副词。润：动词。万物：名词。
+- 平仄：平仄平平仄仄仄
+- 主题：上联的主题信息是春天的雨水滋润万物。
+- 感情基调：上联表达了一种柔和、温暖、滋养的感情基调，强调了春雨给大自然带来的滋润和生机。
 
-词性：春雨：名词。丝丝：副词。润：动词。万物：名词。
-
-平仄：平仄平平仄仄仄
-
-主题：上联的主题信息是春天的雨水滋润万物。
-
-感情基调：上联表达了一种柔和、温暖、滋养的感情基调，强调了春雨给大自然带来的滋润和生机。
-
+请对下联。
+"""
+compose_couplet_oneshot_assistant = """
 下联：红梅点点绣千山
-\"\"\"
+"""
 
+compose_couplet_query = """
 上联：{first_line}
 
-字数：{chars}
+- 字数：{chars}
+- 词性：{pos}
+- 平仄：{tones}
+- 主题：{topic}
+- 感情基调：{senti}
 
-词性：{pos}
-
-平仄：{tones}
-
-主题：{topic}
-
-感情基调：{senti}
-
-下联：
-
+请对下联。
 """
+
+compose_couplet_messages = [
+    ('system', compose_couplet_system),
+    ('user', compose_couplet_oneshot_user),
+    ('assistant', compose_couplet_oneshot_assistant),
+    ('user', compose_couplet_query)
+]
